@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-link.active {
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.tool-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.tool-card {
+  transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+  transform: translateY(-5px);
+}
+
+.tool-section {
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+textarea.form-control {
+  font-family: monospace;
+  min-height: 150px;
+}

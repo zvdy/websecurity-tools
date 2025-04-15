@@ -20,11 +20,25 @@ const Home: React.FC = () => {
       path: '/jwk-signer'
     },
     {
+      id: 'jwk-verifier',
+      title: 'JWT Verifier',
+      description: 'Verify JWT tokens against JWKS endpoints or JWK keys to ensure they are valid and trusted.',
+      icon: '✅',
+      path: '/jwk-verifier'
+    },
+    {
       id: 'base64',
       title: 'Base64 Encoder/Decoder',
       description: 'Encode data to Base64 or decode Base64 strings back to their original format.',
       icon: '🔄',
       path: '/base64'
+    },
+    {
+      id: 'x509-decoder',
+      title: 'X.509 Certificate Decoder',
+      description: 'Decode X.509 certificates to view their details including subject, issuer, and validity period.',
+      icon: '🔐',
+      path: '/x509-decoder'
     }
   ];
 

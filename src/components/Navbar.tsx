@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useTheme } from '../utils/ThemeContext';
 
 const Navbar: React.FC = () => {
   const { darkMode, toggleDarkMode } = useTheme();
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
   
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -11,32 +14,68 @@ const Navbar: React.FC = () => {
         <NavLink to="/" className="navbar-brand">Security Tools Hub</NavLink>
         <button 
           className="navbar-toggler" 
-          type="button" 
-          data-bs-toggle="collapse" 
-          data-bs-target="#navbarNav"
+          type="button"
+          onClick={handleNavCollapse}
+          aria-expanded={!isNavCollapsed}
+          aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarNav">
+        <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navbarNav">
           <ul className="navbar-nav me-auto">
             <li className="nav-item">
-              <NavLink to="/" className={({isActive}) => isActive ? "nav-link active" : "nav-link"} end>
+              <NavLink 
+                to="/" 
+                className={({isActive}) => isActive ? "nav-link active" : "nav-link"} 
+                end
+                onClick={() => setIsNavCollapsed(true)}
+              >
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/jwt-decoder" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+              <NavLink 
+                to="/jwt-decoder" 
+                className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
+                onClick={() => setIsNavCollapsed(true)}
+              >
                 JWT Decoder
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/jwk-signer" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+              <NavLink 
+                to="/jwk-signer" 
+                className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
+                onClick={() => setIsNavCollapsed(true)}
+              >
                 JWK Signer
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/base64" className={({isActive}) => isActive ? "nav-link active" : "nav-link"}>
+              <NavLink 
+                to="/jwk-verifier" 
+                className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
+                onClick={() => setIsNavCollapsed(true)}
+              >
+                JWT Verifier
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink 
+                to="/base64" 
+                className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
+                onClick={() => setIsNavCollapsed(true)}
+              >
                 Base64 Encoder/Decoder
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink 
+                to="/x509-decoder" 
+                className={({isActive}) => isActive ? "nav-link active" : "nav-link"}
+                onClick={() => setIsNavCollapsed(true)}
+              >
+                X.509 Certificate Decoder
               </NavLink>
             </li>
           </ul>

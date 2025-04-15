@@ -4,7 +4,9 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import JwtDecoder from './pages/JwtDecoder';
 import JwkSigner from './pages/JwkSigner';
+import JwkVerifier from './pages/JwkVerifier';
 import Base64 from './pages/Base64';
+import X509Decoder from './pages/X509Decoder';
 import { ThemeProvider, useTheme } from './utils/ThemeContext';
 
 // Footer component with theme awareness
@@ -29,7 +31,9 @@ const App: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/jwt-decoder" element={<JwtDecoder />} />
             <Route path="/jwk-signer" element={<JwkSigner />} />
+            <Route path="/jwk-verifier" element={<JwkVerifier />} />
             <Route path="/base64" element={<Base64 />} />
+            <Route path="/x509-decoder" element={<X509Decoder />} />
           </Routes>
         </main>
         <Footer />

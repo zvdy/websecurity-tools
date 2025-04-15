@@ -8,9 +8,12 @@ const rootElement = document.getElementById('root');
 if (!rootElement) throw new Error('Failed to find the root element');
 const root = createRoot(rootElement);
 
+// Use the basename property for GitHub Pages deployment
+const basename = process.env.NODE_ENV === 'production' ? '/websecurity-tools' : '/';
+
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </React.StrictMode>

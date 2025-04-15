@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
-    publicPath: '/'
+    publicPath: process.env.NODE_ENV === 'production' ? '/websecurity-tools/' : '/'
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.jsx'],

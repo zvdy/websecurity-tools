@@ -1,3 +1,6 @@
+/* Import Bootstrap Icons */
+@import url("bootstrap-icons/font/bootstrap-icons.css");
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -116,4 +119,46 @@ body.dark-mode .btn-outline-secondary:hover {
 .theme-toggle-btn svg {
   width: 20px;
   height: 20px;
+}
+
+/* JWT Token display styling */
+.token-parts {
+  font-family: monospace;
+  word-break: break-all;
+  margin-top: 10px;
+  line-height: 1.5;
+}
+
+.token-parts .text-primary {
+  color: #4285f4 !important;
+}
+
+.token-parts .text-danger {
+  color: #ea4335 !important;
+}
+
+.token-parts .text-info {
+  color: #34a853 !important;
+}
+
+/* Card fixes for dark mode */
+body.dark-mode .card-header {
+  border-bottom-color: #444;
+}
+
+body.dark-mode .list-group-item {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+/* Button styling */
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+}
+
+/* Pre tags in JWT decoder */
+.card-body pre {
+  max-height: 300px;
+  overflow: auto;
 }

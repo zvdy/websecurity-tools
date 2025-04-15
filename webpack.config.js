@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -37,12 +38,22 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.svg$/,
+        type: 'asset/resource',
       }
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      favicon: './public/favicon.svg'
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: 'public', to: 'public' }
+      ]
     }),
     // Add polyfill plugins
     new webpack.ProvidePlugin({

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Shield background -->
+  <path d="M24 4L6 12V24C6 34.2 13.8 43.92 24 46C34.2 43.92 42 34.2 42 24V12L24 4Z" fill="#2563EB" />
+  <!-- Lock shape -->
+  <rect x="16" y="22" width="16" height="14" rx="2" fill="white" />
+  <!-- Lock upper part -->
+  <path d="M18 22V18C18 14.6863 20.6863 12 24 12C27.3137 12 30 14.6863 30 18V22" stroke="white" stroke-width="3" stroke-linecap="round" />
+  <!-- Key hole -->
+  <circle cx="24" cy="29" r="2" fill="#2563EB" />
+  <path d="M24 29V33" stroke="#2563EB" stroke-width="2" stroke-linecap="round" />
+  <!-- Created by @zvdy -->
+  <text x="24" y="46" font-family="system-ui, sans-serif" font-size="4" text-anchor="middle" fill="white">@zvdy</text>
+</svg>

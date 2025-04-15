@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { signWithJwk } from '../utils/crypto';
+import { useTheme } from '../utils/ThemeContext';
 
 const JwkSigner: React.FC = () => {
   const [jwk, setJwk] = useState('');
@@ -9,6 +10,7 @@ const JwkSigner: React.FC = () => {
   const [signedToken, setSignedToken] = useState('');
   const [error, setError] = useState<string | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(false);
+  const { darkMode } = useTheme();
 
   const algorithms = ['RS256', 'RS384', 'RS512', 'ES256', 'ES384', 'ES512', 'HS256', 'HS384', 'HS512'];
   
@@ -80,7 +82,7 @@ const JwkSigner: React.FC = () => {
         Create signed JWTs using a JSON Web Key (JWK) and custom payload.
       </p>
 
-      <div className="tool-section bg-light">
+      <div className={`tool-section ${darkMode ? 'bg-dark' : 'bg-light'}`}>
         <div className="mb-3">
           <label htmlFor="jwk" className="form-label">JWK (JSON Web Key)</label>
           <textarea
@@ -163,7 +165,7 @@ const JwkSigner: React.FC = () => {
         {signedToken && (
           <div className="mt-4">
             <h3>Signed JWT</h3>
-            <div className="bg-dark text-white p-3 rounded">
+            <div className={`${darkMode ? 'bg-black' : 'bg-dark'} text-white p-3 rounded`}>
               <pre className="text-break" style={{ margin: 0 }}>
                 {signedToken}
               </pre>

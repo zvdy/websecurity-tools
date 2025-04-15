@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { decodeJwt } from '../utils/crypto';
+import { useTheme } from '../utils/ThemeContext';
 
 const JwtDecoder: React.FC = () => {
   const [jwtToken, setJwtToken] = useState('');
   const [decodedHeader, setDecodedHeader] = useState<any>(null);
   const [decodedPayload, setDecodedPayload] = useState<any>(null);
   const [error, setError] = useState<string | undefined>(undefined);
+  const { darkMode } = useTheme();
 
   const handleDecode = () => {
     if (!jwtToken.trim()) {
@@ -35,7 +37,7 @@ const JwtDecoder: React.FC = () => {
         Decode and inspect JWT tokens to view their header and payload contents.
       </p>
 
-      <div className="tool-section bg-light">
+      <div className={`tool-section ${darkMode ? 'bg-dark' : 'bg-light'}`}>
         <div className="mb-3">
           <label htmlFor="jwtToken" className="form-label">JWT Token</label>
           <textarea
@@ -71,7 +73,7 @@ const JwtDecoder: React.FC = () => {
         {decodedHeader && (
           <div className="mt-4">
             <h3>Header</h3>
-            <div className="bg-dark text-white p-3 rounded">
+            <div className={`${darkMode ? 'bg-black' : 'bg-dark'} text-white p-3 rounded`}>
               <pre style={{ margin: 0 }}>
                 {JSON.stringify(decodedHeader, null, 2)}
               </pre>
@@ -82,7 +84,7 @@ const JwtDecoder: React.FC = () => {
         {decodedPayload && (
           <div className="mt-4">
             <h3>Payload</h3>
-            <div className="bg-dark text-white p-3 rounded">
+            <div className={`${darkMode ? 'bg-black' : 'bg-dark'} text-white p-3 rounded`}>
               <pre style={{ margin: 0 }}>
                 {JSON.stringify(decodedPayload, null, 2)}
               </pre>

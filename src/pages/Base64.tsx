@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { encodeBase64, decodeBase64, encodeBase64Url, decodeBase64Url } from '../utils/crypto';
+import { useTheme } from '../utils/ThemeContext';
 
 const Base64: React.FC = () => {
   const [input, setInput] = useState('');
@@ -7,6 +8,7 @@ const Base64: React.FC = () => {
   const [mode, setMode] = useState<'encode' | 'decode'>('encode');
   const [format, setFormat] = useState<'standard' | 'url'>('standard');
   const [error, setError] = useState<string | undefined>(undefined);
+  const { darkMode } = useTheme();
 
   const handleProcess = () => {
     try {
@@ -62,7 +64,7 @@ const Base64: React.FC = () => {
         Encode data to Base64 or decode Base64 strings back to their original format.
       </p>
 
-      <div className="tool-section bg-light">
+      <div className={`tool-section ${darkMode ? 'bg-dark' : 'bg-light'}`}>
         <div className="mb-3">
           <div className="d-flex justify-content-between align-items-center mb-2">
             <label htmlFor="input" className="form-label mb-0">
@@ -153,7 +155,7 @@ const Base64: React.FC = () => {
         {output && (
           <div className="mt-4">
             <h3>Result</h3>
-            <div className="bg-dark text-white p-3 rounded">
+            <div className={`${darkMode ? 'bg-black' : 'bg-dark'} text-white p-3 rounded`}>
               <pre className="text-break" style={{ margin: 0 }}>
                 {output}
               </pre>

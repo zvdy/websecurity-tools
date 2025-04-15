@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTheme } from '../utils/ThemeContext';
 
 const Home: React.FC = () => {
+  const { darkMode } = useTheme();
   const tools = [
     {
       id: 'jwt-decoder',
@@ -36,11 +38,11 @@ const Home: React.FC = () => {
       <div className="row g-4">
         {tools.map(tool => (
           <div className="col-md-4" key={tool.id}>
-            <div className="card h-100 shadow tool-card">
+            <div className={`card h-100 shadow tool-card ${darkMode ? 'bg-dark text-white border-secondary' : ''}`}>
               <div className="card-body text-center">
                 <div className="display-4 mb-3">{tool.icon}</div>
                 <h2 className="card-title h5">{tool.title}</h2>
-                <p className="card-text">{tool.description}</p>
+                <p className={`card-text ${darkMode ? 'text-light' : ''}`}>{tool.description}</p>
               </div>
               <div className="card-footer bg-transparent border-0 text-center pb-3">
                 <Link to={tool.path} className="btn btn-primary">

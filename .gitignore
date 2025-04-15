@@ -3,6 +3,15 @@
 /.pnp
 .pnp.js
 
+# Package lock files
+# npm
+package-lock.json
+# yarn
+yarn.lock
+# pnpm
+pnpm-lock.yaml
+
+
 # Production build
 /dist
 /build

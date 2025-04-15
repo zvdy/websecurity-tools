@@ -36,3 +36,84 @@ textarea.form-control {
   font-family: monospace;
   min-height: 150px;
 }
+
+/* Dark Mode Styles */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+}
+
+body.dark-mode .card,
+body.dark-mode .tool-section {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  border-color: #333;
+}
+
+body.dark-mode .form-control,
+body.dark-mode .form-select,
+body.dark-mode .input-group-text {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+  border-color: #444;
+}
+
+/* Fix placeholder text color in dark mode */
+body.dark-mode .form-control::placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+body.dark-mode .form-control::-webkit-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+body.dark-mode .form-control::-moz-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+body.dark-mode .form-control:-ms-input-placeholder {
+  color: #999;
+  opacity: 1;
+}
+
+body.dark-mode .text-muted {
+  color: #aaa !important;
+}
+
+body.dark-mode .btn-outline-secondary {
+  color: #aaa;
+  border-color: #555;
+}
+
+body.dark-mode .btn-outline-secondary:hover {
+  background-color: #333;
+  color: #fff;
+}
+
+/* Dark mode toggle button */
+.theme-toggle-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.75);
+  transition: color 0.2s ease;
+}
+
+.theme-toggle-btn:hover {
+  color: #fff;
+}
+
+.theme-toggle-btn svg {
+  width: 20px;
+  height: 20px;
+}
